@@ -1,0 +1,222 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: INPUTIOA HPPCTX
+
+
+BO_ 1 DoorAjarMsg: 6 HPPCTX
+ SG_ DrDrAjr_sig : 40|8@1+ (1,0) [0|3] "-"  INPUTIOA
+ SG_ DfDrAjr_sig : 32|8@1+ (1,0) [0|3] "-"  INPUTIOA
+ SG_ LgAjr_sig : 24|8@1+ (1,0) [0|3] "-"  INPUTIOA
+ SG_ PfDrAjr_sig : 16|8@1+ (1,0) [0|3] "-"  INPUTIOA
+ SG_ PrDrAjr_sig : 8|8@1+ (1,0) [0|3] "-"  INPUTIOA
+ SG_ RrDrAjr_sig : 0|8@1+ (1,0) [0|3] "-"  INPUTIOA
+
+BO_ 2 AmbLightMsg: 1 HPPCTX
+ SG_ AutLmpSens_sig : 0|8@1+ (1,0) [0|6] "-"  INPUTIOA
+
+BO_ 3 RnLgthMsg: 2 HPPCTX
+ SG_ AmbLghtExtLght_sig : 8|8@1+ (1,0) [0|5] "-"  INPUTIOA
+ SG_ AmbLghtExtLghtStatCom_sig : 0|8@1+ (1,0) [0|1] "-"  INPUTIOA
+
+BO_ 4 HdLmpSwitchMsg: 1 HPPCTX
+ SG_ AbsPos_sig : 0|8@1+ (1,0) [0|5] "-"  INPUTIOA
+
+BO_ 5 DoorAjarStatMsg: 4 INPUTIOA
+ SG_ DoorAjarStatusFault_sig : 24|8@1+ (1,0) [0|3] "-"  HPPCTX
+ SG_ DoorAjarStatusOp_sig : 16|8@1+ (1,0) [0|3] "-"  HPPCTX
+ SG_ DoorAjarStatusLock_sig : 8|8@1+ (1,0) [0|3] "-"  HPPCTX
+ SG_ DoorAjarId_sig : 0|8@1+ (1,0) [0|3] "-"  HPPCTX
+
+BO_ 6 AmbLightPDUMsg: 1 INPUTIOA
+ SG_ AmbLghtLvlStsPDU_sig : 0|8@1+ (1,0) [0|6] "-"  HPPCTX
+
+BO_ 7 RnLgthPDUMsg: 1 INPUTIOA
+ SG_ AmbLghtExtLghtLvl_sig : 0|8@1+ (1,0) [0|6] "-"  HPPCTX
+
+BO_ 8 HdLmpSwitchPDUMsg: 2 INPUTIOA
+ SG_ HdLmpSwitchPDUStatus_sig : 0|10@1+ (1,0) [0|6] "-"  HPPCTX
+
+BA_DEF_ SG_  "GenSigVtIndex" STRING ;
+BA_DEF_ SG_  "GenSigVtName" STRING ;
+BA_DEF_ SG_  "GenSigVtEn" STRING ;
+BA_DEF_ SG_  "GenSigAppDataTypeCode" STRING ;
+BA_DEF_ BO_  "GenMsgHandlingTypeDoc" STRING ;
+BA_DEF_ BO_  "GenMsgHandlingTypeCode" STRING ;
+BA_DEF_ SG_  "GenSigHandlingTypeCode" STRING ;
+BA_DEF_  "Baudrate" INT 0 1000000;
+BA_DEF_  "GenNetworkBaudrate" STRING ;
+BA_DEF_ BO_  "GenMsgCmt5" STRING ;
+BA_DEF_ BO_  "GenMsgCmt4" STRING ;
+BA_DEF_ BO_  "GenMsgCmt3" STRING ;
+BA_DEF_ BO_  "GenMsgCmt2" STRING ;
+BA_DEF_  "GenNetworkName" STRING ;
+BA_DEF_ SG_  "GenSigNoVal" STRING ;
+BA_DEF_ SG_  "GenSigErrVal" STRING ;
+BA_DEF_ SG_  "GenSigCmt" STRING ;
+BA_DEF_ BO_  "GenMsgCmt1" STRING ;
+BA_DEF_ BU_  "NmStationAddress" HEX 0 0;
+BA_DEF_  "GenNWMApBusSleep" STRING ;
+BA_DEF_  "GenNWMApCanNormal" STRING ;
+BA_DEF_  "GenNWMApCanOff" STRING ;
+BA_DEF_  "GenNWMApCanOn" STRING ;
+BA_DEF_  "GenNWMApCanSleep" STRING ;
+BA_DEF_  "GenNWMApCanWakeUp" STRING ;
+BA_DEF_  "GenNWMGotoMode_Awake" STRING ;
+BA_DEF_  "GenNWMGotoMode_BusSleep" STRING ;
+BA_DEF_  "GenNWMSleepTime" INT 0 1000000;
+BA_DEF_  "GenNWMTalkNM" STRING ;
+BA_DEF_ BU_  "GenNodSleepTime" INT 0 1000000;
+BA_DEF_ BO_  "NWM-Botschaft" ENUM  "nein","ja";
+BA_DEF_ BU_  "NWM-Knoten" ENUM  "nein","ja";
+BA_DEF_ SG_  "NWM-WakeupAllowed" ENUM  "No","Yes";
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 2 50000;
+BA_DEF_ BO_  "GenMsgDelayTime" INT 1 1000;
+BA_DEF_ BO_  "GenMsgNrOfRepetitions" INT 1 999999;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclic","spontaneous","cyclicIfActive","spontaneousWithDelay","cyclicAndSpontaneous","cyclicAndSpontaneousWithDelay","spontaneousWithRepetition","cyclicIfActiveAndSpontaneousWD";
+BA_DEF_ SG_  "GenSigInactiveValue" INT 0 100000;
+BA_DEF_ SG_  "GenSigSendType" ENUM  "spontaneous";
+BA_DEF_ SG_  "GenSigStartValue" FLOAT 0 1E+011;
+BA_DEF_ EV_  "GenEnvControlType" ENUM  "NoControl","SliderHoriz","SliderVert","PushButton","Edit","BitmapSwitch";
+BA_DEF_ EV_  "GenEnvMsgName" STRING ;
+BA_DEF_ EV_  "GenEnvMsgOffset" INT 0 999999999;
+BA_DEF_ EV_  "GenEnvAutoGenCtrl" ENUM  "No","Yes";
+BA_DEF_  "GenEnvVarEndingDsp" STRING ;
+BA_DEF_  "GenEnvVarEndingSnd" STRING ;
+BA_DEF_  "GenEnvVarPrefix" STRING ;
+BA_DEF_ BO_  "GenMsgAltSetting" STRING ;
+BA_DEF_ BO_  "GenMsgAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgConditionalSend" STRING ;
+BA_DEF_ BO_  "GenMsgEVName" STRING ;
+BA_DEF_ BO_  "GenMsgPostIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPostSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreIfSetting" STRING ;
+BA_DEF_ BO_  "GenMsgPreSetting" STRING ;
+BA_DEF_ BU_  "GenNodAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAltSetting" STRING ;
+BA_DEF_ SG_  "GenSigAssignSetting" STRING ;
+BA_DEF_ SG_  "GenSigAutoGenDsp" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigAutoGenSnd" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigConditionalSend" STRING ;
+BA_DEF_ SG_  "GenSigEnvVarType" ENUM  "int","float","undef";
+BA_DEF_ SG_  "GenSigEVName" STRING ;
+BA_DEF_ SG_  "GenSigPostIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPostSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreIfSetting" STRING ;
+BA_DEF_ SG_  "GenSigPreSetting" STRING ;
+BA_DEF_ SG_  "GenSigReceiveSetting" STRING ;
+BA_DEF_DEF_  "GenSigVtIndex" "";
+BA_DEF_DEF_  "GenSigVtName" "";
+BA_DEF_DEF_  "GenSigVtEn" "";
+BA_DEF_DEF_  "GenSigAppDataTypeCode" "";
+BA_DEF_DEF_  "GenMsgHandlingTypeDoc" "";
+BA_DEF_DEF_  "GenMsgHandlingTypeCode" "";
+BA_DEF_DEF_  "GenSigHandlingTypeCode" "";
+BA_DEF_DEF_  "GenNetworkBaudrate" "";
+BA_DEF_DEF_  "Baudrate" 500000;
+BA_DEF_DEF_  "GenMsgCmt5" "";
+BA_DEF_DEF_  "GenMsgCmt4" "";
+BA_DEF_DEF_  "GenMsgCmt3" "";
+BA_DEF_DEF_  "GenMsgCmt2" "";
+BA_DEF_DEF_  "GenNetworkName" "";
+BA_DEF_DEF_  "GenSigNoVal" "";
+BA_DEF_DEF_  "GenSigErrVal" "";
+BA_DEF_DEF_  "GenSigCmt" "";
+BA_DEF_DEF_  "GenMsgCmt1" "";
+BA_DEF_DEF_  "NmStationAddress" 0;
+BA_DEF_DEF_  "GenNWMApBusSleep" "apBusSleep()";
+BA_DEF_DEF_  "GenNWMApCanNormal" "apCanNormal()";
+BA_DEF_DEF_  "GenNWMApCanOff" "apCanOff()";
+BA_DEF_DEF_  "GenNWMApCanOn" "apCanOn()";
+BA_DEF_DEF_  "GenNWMApCanSleep" "apCanSleep()";
+BA_DEF_DEF_  "GenNWMApCanWakeUp" "apCanWakeUp()";
+BA_DEF_DEF_  "GenNWMGotoMode_Awake" "GotoMode_Awake()";
+BA_DEF_DEF_  "GenNWMGotoMode_BusSleep" "GotoMode_BusSleep()";
+BA_DEF_DEF_  "GenNWMSleepTime" 0;
+BA_DEF_DEF_  "GenNWMTalkNM" "TalkNM()";
+BA_DEF_DEF_  "GenNodSleepTime" 0;
+BA_DEF_DEF_  "NWM-Botschaft" "nein";
+BA_DEF_DEF_  "NWM-Knoten" "nein";
+BA_DEF_DEF_  "NWM-WakeupAllowed" "";
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 100;
+BA_DEF_DEF_  "GenMsgDelayTime" 1;
+BA_DEF_DEF_  "GenMsgNrOfRepetitions" 1;
+BA_DEF_DEF_  "GenMsgSendType" "spontaneous";
+BA_DEF_DEF_  "GenSigInactiveValue" 0;
+BA_DEF_DEF_  "GenSigSendType" "";
+BA_DEF_DEF_  "GenSigStartValue" 0;
+BA_DEF_DEF_  "GenEnvControlType" "";
+BA_DEF_DEF_  "GenEnvMsgName" "";
+BA_DEF_DEF_  "GenEnvMsgOffset" 0;
+BA_DEF_DEF_  "GenEnvAutoGenCtrl" "No";
+BA_DEF_DEF_  "GenEnvVarEndingDsp" "Dsp_";
+BA_DEF_DEF_  "GenEnvVarEndingSnd" "_";
+BA_DEF_DEF_  "GenEnvVarPrefix" "Env";
+BA_DEF_DEF_  "GenMsgAltSetting" "";
+BA_DEF_DEF_  "GenMsgAutoGenDsp" "";
+BA_DEF_DEF_  "GenMsgAutoGenSnd" "";
+BA_DEF_DEF_  "GenMsgConditionalSend" "";
+BA_DEF_DEF_  "GenMsgEVName" "";
+BA_DEF_DEF_  "GenMsgPostIfSetting" "";
+BA_DEF_DEF_  "GenMsgPostSetting" "";
+BA_DEF_DEF_  "GenMsgPreIfSetting" "";
+BA_DEF_DEF_  "GenMsgPreSetting" "";
+BA_DEF_DEF_  "GenNodAutoGenSnd" "";
+BA_DEF_DEF_  "GenSigAltSetting" "";
+BA_DEF_DEF_  "GenSigAssignSetting" "";
+BA_DEF_DEF_  "GenSigAutoGenDsp" "";
+BA_DEF_DEF_  "GenSigAutoGenSnd" "";
+BA_DEF_DEF_  "GenSigConditionalSend" "";
+BA_DEF_DEF_  "GenSigEnvVarType" "undef";
+BA_DEF_DEF_  "GenSigEVName" "";
+BA_DEF_DEF_  "GenSigPostIfSetting" "";
+BA_DEF_DEF_  "GenSigPostSetting" "";
+BA_DEF_DEF_  "GenSigPreIfSetting" "";
+BA_DEF_DEF_  "GenSigPreSetting" "";
+BA_DEF_DEF_  "GenSigReceiveSetting" "";
+BA_ "GenNetworkName" "Network01";
+BA_ "GenNetworkBaudrate" "500000";
+BA_ "Baudrate" 500000;
+BA_ "GenMsgCycleTime" BO_ 5 100;
+BA_ "GenMsgSendType" BO_ 5 0;
+BA_ "GenMsgCycleTime" BO_ 6 100;
+BA_ "GenMsgSendType" BO_ 6 0;
+BA_ "GenMsgCycleTime" BO_ 7 100;
+BA_ "GenMsgSendType" BO_ 7 0;
+BA_ "GenMsgCycleTime" BO_ 8 100;
+BA_ "GenMsgSendType" BO_ 8 0;
